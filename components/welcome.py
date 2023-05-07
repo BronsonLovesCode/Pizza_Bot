@@ -1,4 +1,3 @@
-# Pizza bot program
 import random
 from random import randint
 
@@ -9,4 +8,5 @@ num = randint(0,9)
 
 name = (names[num])
 
-print(name)
+print("*** welcome to Dream Pizzas!")
+print("*** My name is",name "***")
