@@ -8,5 +8,6 @@ num = randint(0,9)
 
 name = (names[num])
 
-print("*** welcome to Dream Pizzas!")
-print("*** My name is",name "***")
+print("*** welcome to Dream Pizzas!***")
+print("*** My name is",name, "***")
+print("***I will be here to help you order your delicous Dream Pizza***")
