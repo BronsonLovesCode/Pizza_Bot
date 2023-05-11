@@ -7,9 +7,6 @@ print ("*** Is your order for pickup or delivery? ***")
 print ("*** For delivery, enter 1. ***")
 print ("*** For pickup, enter 2. ***")
 
-low = 1
-high = 2
-
 while True:
       try:
             delivery = int(input("*** Please enter a number. *** "))
