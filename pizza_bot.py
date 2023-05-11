@@ -20,12 +20,29 @@ def welcome():
     print("*** My name is",name, "***")
     print("*** I will be here to help you order your delicous Dream Pizza ***")
 
-# Menu for pickup or delivery
+    # Menu for pickup or delivery
+def pickup():
+    print ("*** Is your order for pickup or delivery? ***")
 
+    print ("*** For delivery, enter 1. ***")
+    print ("*** For pickup, enter 2. ***")
 
+    while True:
+        try:
+                delivery = int(input("*** Please enter a number. *** "))
+                if delivery >= 1 and delivery <= 2:
+                    if delivery == 1:
+                            print ("Delivery")
+                            break
 
-
-
+                    elif delivery == 2:
+                            print ("Pickup")
+                            break
+                else:
+                    print ("*** The number must be 1 or 2. *** ")
+        except ValueError:
+                print ("*** That was not a valid input... *** ")
+                print ("*** Please enter 1 or 2. *** ")
 
 # Pick up information - name and phone number
 
@@ -87,5 +104,6 @@ def main():
 
     '''
     welcome()
+    pickup()
 
 main()
