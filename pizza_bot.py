@@ -3,7 +3,11 @@
 # Bugs - Phone number input allows letters
 #      - Name input allows numbers
 
+# List of pizza names and prices
+pizza_names = ['Margherita','Pepperoni','Hawaiian','Cheese','Italian','Veggie','Vegan',
+               'Chicken Deluxe','Mega Meat Lovers','Seafood Deluxe','Apricot Chicken Deluxe','BBQ Chicken Deluxe']
 
+pizza_prices = [8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 13.50, 13.50, 13.50, 13.50, 13.50]
 
 
 import random
@@ -14,6 +18,19 @@ from random import randint
 
 # List of random names
 names = ["Bronson", "Adam", "Alain", "Ethan", "Eardwulf", "Santiago", "Daniel", "Dannell", "Luka", "Jason"]
+
+
+
+
+# List of pizza names
+pizza_names = ['Margherita','Pepperoni','Hawaiian','Cheese','Italian','Veggie','Vegan',
+               'Chicken Deluxe','Mega Meat Lovers','Seafood Deluxe','Apricot Chicken Deluxe','BBQ Chicken Deluxe']
+
+
+
+
+# List of pizza prices
+pizza_prices = [8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 13.50, 13.50, 13.50, 13.50, 13.50]
 
 
 
@@ -118,6 +135,13 @@ def delivery_info():
     print (customer_details['suburb'])
     print (customer_details)
 
+# Pizza Menu
+def menu():
+    number_pizzas = 12
+
+    for count in range (number_pizzas):
+        print("{} {} ${:.2f}" .format(count+1,pizza_names[count],pizza_prices[count]))
+
 
 
 
@@ -169,5 +193,6 @@ def main():
     '''
     welcome()
     order_type()
+    menu()
 
 main()
