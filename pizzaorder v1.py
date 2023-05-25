@@ -37,8 +37,8 @@ for item in range(num_pizzas):
         order_cost.append(pizza_prices[pizza_ordered])
         num_pizzas = num_pizzas-1
 
-print(order_list)
-print(order_cost)
+#print(order_list)
+#print(order_cost)
 
 
 
