@@ -31,7 +31,7 @@ order_list = []
 
 
 
-# List to store  pizza prices
+# List to store pizza prices
 order_cost = []
 
 
