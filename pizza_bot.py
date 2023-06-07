@@ -75,6 +75,7 @@ def welcome():
 
     # Menu for pickup or delivery
 def order_type():
+    del_pick = ""
     print ("*** Is your order for pickup or delivery? ***")
     print ("*** For delivery, enter 1. *** ")
     print ("*** For pickup, enter 2. *** ")
@@ -85,17 +86,19 @@ def order_type():
                     if delivery == 1:
                             print ("Delivery")
                             delivery_info()
+                            del_pick = "delivery"
                             break
                     elif delivery == 2:
                             print ("Pickup")
                             pickup_info()
+                            del_pick = "pickup"
                             break
                 else:
                     print ("*** The number must be 1 or 2. *** ")
         except ValueError:
                 print ("*** That was not a valid input... *** ")
                 print ("*** Please enter 1 or 2. *** ")
-
+    return del_pick
 
 
 
@@ -103,11 +106,11 @@ def order_type():
 def pickup_info():
     question = ("*** Please enter your name. *** ")
     customer_details['name'] = not_blank(question)
-    #print (customer_details['name'])
+    print (customer_details['name'])
 
     question = ("*** Please enter your phone number. *** ")
     customer_details['phone'] = not_blank(question)
-    #print (customer_details['phone'])
+    print (customer_details['phone'])
     print(customer_details)
 
 
@@ -180,7 +183,26 @@ def order_pizza():
 
 
 # Print order out - including if order is delivery or pick up and names and price of each pizza - totaql cost including any delivery charge
-
+def print_order(del_pick):
+    total_cost = sum(order_cost)
+    print()
+    print("*** Customer Details ***")
+    if del_pick == "delivery":
+        print("Your order is for delivery.")
+        print(f"Name: {customer_details['name']} \nPhone number: {customer_details['phone']} \nAddress: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+    elif del_pick == "pickup":
+        print("Your order is for pickup.")
+        print(f"Name: {customer_details['name']} \nPhone number: {customer_details['phone']}")
+    print()
+    print("*** Order Details ***")
+    count = 0
+    for item in order_list:
+        print("Ordered: {} Cost: ${:.2f}".format(item, order_cost[count]))
+        count = count+1
+    print()
+    print("*** Total Order Cost ***")
+    print(f"${total_cost:.2f}")
+    print()
 
 
 
@@ -206,8 +228,9 @@ def main():
 
     '''
     welcome()
-    order_type()
+    del_pick = order_type()
     menu()
     order_pizza()
-    
+    print_order(del_pick)
+
 main()
