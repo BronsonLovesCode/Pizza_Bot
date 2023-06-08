@@ -85,6 +85,8 @@ def order_type():
                 if delivery >= 1 and delivery <= 2:
                     if delivery == 1:
                             print ("Delivery")
+                            #order_list.append("*** Delivery Charge ***")
+                            #order_cost.append(5)
                             delivery_info()
                             del_pick = "delivery"
                             break
@@ -188,7 +190,8 @@ def print_order(del_pick):
     print()
     print("*** Customer Details ***")
     if del_pick == "delivery":
-        print("Your order is for delivery.")
+        print("Your order is for delivery. A $5.00 dollar delivery charge applies.")
+        total_cost = total_cost + 5
         print(f"Name: {customer_details['name']} \nPhone number: {customer_details['phone']} \nAddress: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     elif del_pick == "pickup":
         print("Your order is for pickup.")
