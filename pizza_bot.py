@@ -4,7 +4,7 @@
 #      - Name input allows numbers
 
 
-
+import sys
 import random
 from random import randint
 
@@ -210,14 +210,69 @@ def print_order(del_pick):
 
 
 # Ability to cancel or proceed with order
+def confirm_cancel():
+    print ("*** Please confirm your order. ***")
+    print ("*** To confirm order, enter 1. ***")
+    print ("*** To cancel order, enter 2. ***")
 
+    while True:
+        try:
+                confirm = int(input("*** Please enter a number. *** "))
+                if confirm >= 1 and confirm <= 2:
+                    if confirm == 1:
+                            print ()
+                            print ("*** Order confirmed ***")
+                            print ()
+                            print ("Your order has been sent to our kitchen to be prepared,")
+                            print ("your pizza will be with you shortly!")
+                            print ()
+                            break
+
+                    elif confirm == 2:
+                            print ()
+                            print ("*** Order cancelled ***")
+                            print ()
+                            print ("You can restart your order or exit the BOT.")
+                            print ()
+                            break
+                else:
+                    print ("*** The number must be 1 or 2. *** ")
+        except ValueError:
+                print ("*** That was not a valid input... *** ")
+                print ("*** Please enter 1 or 2. *** ")
 
 
 
 # Option for new order or to exit
+def new_exit():
+    print ("*** Do you wish to start another order or exit? ***")
+    print ("*** To start another order, enter 1. ***")
+    print ("*** To exit the BOT, enter 2. ***")
 
+    while True:
+        try:
+                confirm = int(input("*** Please enter a number. *** "))
+                if confirm >= 1 and confirm <= 2:
+                    if confirm == 1:
+                            print ("*** New Order ***")
+                            order_list.clear()
+                            order_cost.clear()
+                            customer_details.clear()
+                            main()
+                            break
 
-
+                    elif confirm == 2:
+                            print ("*** Exiting BOT ***")
+                            order_list.clear()
+                            order_cost.clear()
+                            customer_details.clear()
+                            sys.exit()                       
+                            break
+                else:
+                    print ("*** The number must be 1 or 2. *** ")
+        except ValueError:
+                print ("*** That was not a valid input... *** ")
+                print ("*** Please enter 1 or 2. *** ")
 
 
 
@@ -235,5 +290,7 @@ def main():
     menu()
     order_pizza()
     print_order(del_pick)
+    confirm_cancel()
+    new_exit()
 
 main()
